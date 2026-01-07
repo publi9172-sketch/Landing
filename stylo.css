@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* FONDO */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("./imagenes/fondo.png") no-repeat center center;
+    background-size: cover;
+    z-index: 0;
+}
+
+/* OSCURECER FONDO */
+body::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 0;
+}
+
+/* CONTENEDOR */
+.container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 40px 35px;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 45px rgba(25, 243, 80, 0.6);
+}
+
+/* TITULO */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 6vw, 52px);
+     line-height: 1.1;
+    color: #35f345;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow:
+        0 0 5px#35f345,
+        0 0 10px #35f345,
+        0 0 20px #35f345,
+        0 0 40px #35f345;
+    animation: neonGlow 1.8s infinite alternate;
+     white-space: normal;      /* Permite que el texto se divida en varias líneas */
+     overflow: visible;        /* Evita que se corte */
+     word-break: break-word;  /* Rompe palabras si hace falta para ajustar al ancho */
+}
+
+
+
+/* TEXTO */
+p {
+    font-size: 1.1rem;
+    margin-bottom: 35px;
+    line-height: 1.5;,
+        0 0 80px #
+}
+
+/* BOTÓN PRINCIPAL */
+.btn-wp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  background: #25D366;
+  color: #000;
+  text-align: center;
+
+  padding: 18px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.btn-wp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  background: #25D366;
+  color: #000;
+
+  padding: 20px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+
+  font-weight: 700;
+  text-align: center;
+
+
+  font-family: 'Leon', serif; /* o la que uses */
+  color: #050101; /* color base del neon */
+
+  text-shadow:
+    0 0 5px #ee2222,
+    0 0 10px #ee2222,
+    0 0 20px #ee2222,
+    0 0 40px #ee2222;
+}
+
+.wp-icon {
+  width: 42px;   /* ← acá controlás el tamaño */
+  height: 42px;
+  flex-shrink: 0;
+}
+
+.casino-btn:hover {
+    transform: scale(1.08);
+}
+
+@media (max-width: 480px) {
+  .wp-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .btn-wp {
+    gap: 12px;
+    padding: 16px;
+  }
+}
+
+/* ANIMACIÓN BOTÓN */
+@keyframes pulse {
+    0% { box-shadow: 0 0 15px rgb(224, 36, 36); }
+    50% { box-shadow: 0 0 40px rgb(231, 31, 31); }
+    100% { box-shadow: 0 0 15px rgb(233, 35, 35); }
+}
+
+/* WHATSAPP FLOTANTE */
+.wp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: #25d366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    text-decoration: none;
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.8);
+    z-index: 10;
+    animation: float 1.8s infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+/* FOOTER */
+footer {
+    position: absolute;
+    bottom: 10px;
+    font-size: 0.8rem;
+    color: #ccc;
+    z-index: 1;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.1rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .casino-btn {
+        width: 100%;
+        justify-content: center;
+        font-size: 1.1rem;
+        padding: 15px;
+    }
+
+    .wp-float {
+        width: 55px;
+        height: 55px;
+        font-size: 1.8rem;
+    }
+}
+
+@keyframes neonGlow {
+    from {
+        text-shadow:
+            0 0 5px#f33535,
+            0 0 10px #f33535,
+            0 0 20px#f33535,
+            0 0 40px #f33535,
+            0 0 60px #f33535;
+    }
+    to {
+        text-shadow:
+            0 0 10px#f33535,
+            0 0 20px  #f33535,
+            0 0 40px #f33535,
+            0 0 80px #f33535,
+            0 0 120px  #f33535;
+    }
+}
+
+@keyframes floatBtn {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.btn-wp {
+  animation: floatBtn 2.5s ease-in-out infinite;
+}
