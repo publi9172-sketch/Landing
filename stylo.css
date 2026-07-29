@@ -35,12 +35,12 @@ body::after {
     z-index: 0;
 }
 
-/* CONTENEDOR */
+/* CONTENEDOR PRINCIPAL */
 .container {
     position: relative;
     z-index: 1;
     text-align: center;
-    padding: 40px 35px;
+    padding: 40px 25px;
     border-radius: 20px;
     max-width: 500px;
     width: 90%;
@@ -51,105 +51,56 @@ body::after {
 /* TITULO */
 h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 6vw, 52px);
-     line-height: 1.1;
+    font-size: clamp(28px, 5vw, 48px);
+    line-height: 1.2;
     color: #35f345;
     margin-bottom: 20px;
     text-align: center;
-    text-shadow:
-        0 0 5px#35f345,
-        0 0 10px #35f345,
-        0 0 20px #35f345,
-        0 0 40px #35f345;
+    white-space: normal;
+    overflow: visible;
+    word-break: break-word;
     animation: neonGlow 1.8s infinite alternate;
-     white-space: normal;      /* Permite que el texto se divida en varias líneas */
-     overflow: visible;        /* Evita que se corte */
-     word-break: break-word;  /* Rompe palabras si hace falta para ajustar al ancho */
 }
-
-
 
 /* TEXTO */
 p {
     font-size: 1.1rem;
     margin-bottom: 35px;
-    line-height: 1.5;,
-        0 0 80px #
+    line-height: 1.5;
 }
 
-/* BOTÓN PRINCIPAL */
+/* BOTÓN DE WHATSAPP */
 .btn-wp {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-
-  background: #25D366;
-  color: #000;
-  text-align: center;
-
-  padding: 18px 24px;
-  border-radius: 50px;
-  text-decoration: none;
-
-  font-weight: bold;
-  line-height: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: #25D366;
+    color: #050101;
+    text-align: center;
+    padding: 18px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    line-height: 1.2;
+    font-family: 'Leon', serif;
+    text-shadow:
+        0 0 5px #ee2222,
+        0 0 10px #ee2222,
+        0 0 20px #ee2222,
+        0 0 40px #ee2222;
+    animation: floatBtn 2.5s ease-in-out infinite;
+    transition: transform 0.3s ease;
 }
 
-.btn-wp {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-
-  background: #25D366;
-  color: #000;
-
-  padding: 20px 28px;
-  border-radius: 50px;
-  text-decoration: none;
-
-  font-weight: 700;
-  text-align: center;
-
-
-  font-family: 'Leon', serif; /* o la que uses */
-  color: #050101; /* color base del neon */
-
-  text-shadow:
-    0 0 5px #ee2222,
-    0 0 10px #ee2222,
-    0 0 20px #ee2222,
-    0 0 40px #ee2222;
+.btn-wp:hover {
+    transform: scale(1.05);
 }
 
 .wp-icon {
-  width: 42px;   /* ← acá controlás el tamaño */
-  height: 42px;
-  flex-shrink: 0;
-}
-
-.casino-btn:hover {
-    transform: scale(1.08);
-}
-
-@media (max-width: 480px) {
-  .wp-icon {
-    width: 36px;
-    height: 36px;
-  }
-
-  .btn-wp {
-    gap: 12px;
-    padding: 16px;
-  }
-}
-
-/* ANIMACIÓN BOTÓN */
-@keyframes pulse {
-    0% { box-shadow: 0 0 15px rgb(224, 36, 36); }
-    50% { box-shadow: 0 0 40px rgb(231, 31, 31); }
-    100% { box-shadow: 0 0 15px rgb(233, 35, 35); }
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
 }
 
 /* WHATSAPP FLOTANTE */
@@ -172,12 +123,6 @@ p {
     animation: float 1.8s infinite;
 }
 
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-    100% { transform: translateY(0); }
-}
-
 /* FOOTER */
 footer {
     position: absolute;
@@ -187,61 +132,58 @@ footer {
     z-index: 1;
 }
 
-/* 📱 RESPONSIVE */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2.1rem;
-    }
-
-    p {
-        font-size: 1rem;
-    }
-
-    .casino-btn {
-        width: 100%;
-        justify-content: center;
-        font-size: 1.1rem;
-        padding: 15px;
-    }
-
-    .wp-float {
-        width: 55px;
-        height: 55px;
-        font-size: 1.8rem;
-    }
-}
-
+/* ANIMACIONES */
 @keyframes neonGlow {
     from {
         text-shadow:
-            0 0 5px#f33535,
+            0 0 5px #f33535,
             0 0 10px #f33535,
-            0 0 20px#f33535,
-            0 0 40px #f33535,
-            0 0 60px #f33535;
+            0 0 20px #f33535,
+            0 0 40px #f33535;
     }
     to {
         text-shadow:
-            0 0 10px#f33535,
-            0 0 20px  #f33535,
+            0 0 10px #f33535,
+            0 0 20px #f33535,
             0 0 40px #f33535,
-            0 0 80px #f33535,
-            0 0 120px  #f33535;
+            0 0 80px #f33535;
     }
 }
 
 @keyframes floatBtn {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
 }
 
-.btn-wp {
-  animation: floatBtn 2.5s ease-in-out infinite;
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+
+    .btn-wp {
+        gap: 10px;
+        padding: 14px 18px;
+        font-size: 0.95rem;
+    }
+
+    .wp-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .wp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 1.6rem;
+    }
 }
