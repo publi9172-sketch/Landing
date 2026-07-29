@@ -17,7 +17,7 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     
     fbq('init', '1283857183656186');
-    // PageView con código de prueba
+    // Evento base PageView con código de prueba
     fbq('track', 'PageView', {}, {test_event_code: 'TEST99129'});
     </script>
     <noscript>
@@ -44,7 +44,7 @@
             Jugá ahora y empezá a ganar
         </p>
 
-        <!-- Botón principal -->
+        <!-- Botón principal de WhatsApp -->
         <a href="https://wa.me/5491176808843?text=Hola%20quiero%20reclamar%20mis%201500%20extras%20de%20bienvenida" 
            class="btn-wp" 
            onclick="enviarEventos(event, this.href)">
@@ -71,24 +71,24 @@
         Juego responsable +18
     </footer>
 
-    <!-- SCRIPT DE EVENTOS LEAD + PURCHASE -->
+    <!-- SCRIPT PARA DISPARAR LEAD Y PURCHASE ANTES DE ABRIR WHATSAPP -->
     <script>
         function enviarEventos(event, url) {
-            event.preventDefault(); // Retiene la navegación brevemente
+            event.preventDefault(); // Pausa brevemente la apertura del enlace
 
-            // 1. Evento Lead
+            // 1. Dispara evento Lead
             fbq('track', 'Lead', {}, {test_event_code: 'TEST99129'});
 
-            // 2. Evento Purchase (puedes cambiar 'value' y 'currency' si lo necesitas)
+            // 2. Dispara evento Purchase
             fbq('track', 'Purchase', {
                 value: 0.00, 
                 currency: 'ARS'
             }, {test_event_code: 'TEST99129'});
 
-            // Redirige a WhatsApp tras 300 ms para asegurar que Meta reciba los datos
+            // Redirige a WhatsApp dando 400ms a Meta para registrar ambos eventos
             setTimeout(function() {
                 window.open(url, '_blank');
-            }, 300);
+            }, 400);
         }
     </script>
 
